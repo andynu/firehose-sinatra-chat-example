@@ -6,8 +6,6 @@ require 'dm-migrations'
 DB_FILE = File.expand_path("../../chat.db",__FILE__)
 DM_DSN = "sqlite://#{DB_FILE}"
 
-puts DM_DSN
-
 DataMapper::Logger.new($stdout, :debug)
 DataMapper.setup(:default, DM_DSN)
 

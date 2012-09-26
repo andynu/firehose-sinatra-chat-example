@@ -1,7 +1,7 @@
 firehose-sinatra-chat-example
 =============================
 
-firehose/sinatra/datamapper/backbone/redis chat server examplesimple chat server using firehose.io
+firehose/sinatra/datamapper/backbone/redis chat server example
 
 ## PRE-REQS
 
