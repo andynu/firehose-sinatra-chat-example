@@ -12,26 +12,51 @@ message_template = _.template """
 d = (o...) -> console.debug(o...)
 
 
-send_message = (content) ->
-  console.log "sending message '#{content}'"
-  $.ajax
-    url: '/c/general.json'
-    type: 'put'
-    data: {
-      to: '#general'
-      from: $('#nick').val()
-      content: content
-    }
 
+class MessageStream
+  constructor: (@url) ->
 
-receive_message = (message) ->
-  $("#channel").append message_template($.parseJSON(message.data))
+  connect: () =>
+    d 'connecting'
+    @socket = new WebSocket(@url)
+    @socket.onmessage = @receive_message
+    @socket.onopen    = @welcome
+    @socket.onerror   = @handle_error
+    @socket.onclose   = @handle_close
+
+  welcome: (evt) ->
+    d "Welcome!"
+
+  handle_error: (evt) ->
+    d "Error!"
+    d evt
+
+  handle_close: (evt) =>
+    d "Close!"
+    d evt
+    setTimeout @connect, 500
+
+  send_message: (content) ->
+    console.log "sending message '#{content}'"
+    $.ajax
+      url: '/c/general.json'
+      type: 'put'
+      data: {
+        to: '#general'
+        from: $('#nick').val()
+        content: content
+      }
+
+  receive_message: (message) ->
+    $("#channel").append message_template($.parseJSON(message.data))
 
 $ ->
+  message_stream = new MessageStream('ws://127.0.0.1:4567/chat/c/general.json')
+  message_stream.connect()
+
   $('#input').on 'keypress', (e) ->
     if e.which is 13
-      send_message $(this).val()
+      message_stream.send_message $(this).val()
       $(this).val('')
 
-  socket = new WebSocket('ws://127.0.0.1:4567/chat/c/general.json')
-  socket.onmessage = receive_message
+
