@@ -37,7 +37,7 @@ firehose/sinatra/datamapper/backbone/redis chat server examplesimple chat server
 
 ## DEPENDENCIES
 
-    $ bundle installing
+    $ bundle install
 
 ## RUNNING
 
