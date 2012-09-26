@@ -19,7 +19,7 @@ send_message = (content) ->
     type: 'put'
     data: {
       to: '#general'
-      from: 'andy'
+      from: $('#nick').val()
       content: content
     }
 

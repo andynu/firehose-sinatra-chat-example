@@ -8,6 +8,8 @@
   %script{src:'/js/chat.js', type:'text/javascript'}
 %body
   %h1 Chat
+  %label{for:'nick'} Nickname
+  %input#nick{value: "Guest#{rand(1000)}"}
   %ul#channel
   %input#input
 
