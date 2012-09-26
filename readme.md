@@ -21,6 +21,16 @@ simple chat server using firehose.io
 
     $ brew install redis
 
+  * sqlite3
+
+  Ubuntu
+
+    $ sudo apt-get install libsqlite3-dev
+
+  OSX
+
+    $ brew install sqlite
+
 # DEPENDENCIES
 
     $ bundle installing
