@@ -8,6 +8,7 @@ firehose/sinatra/datamapper/backbone/redis chat server examplesimple chat server
   * Ruby
 
   http://www.ruby-lang.org/en/
+
   I like rvm ( https://rvm.io/ ).
 
   * bundler gem
@@ -18,21 +19,21 @@ firehose/sinatra/datamapper/backbone/redis chat server examplesimple chat server
 
   Ubuntu
 
-    $ sudo apt-get install redis-server
+      $ sudo apt-get install redis-server
 
   OSX
 
-    $ brew install redis
+      $ brew install redis
 
   * sqlite3
 
   Ubuntu
 
-    $ sudo apt-get install libsqlite3-dev
+      $ sudo apt-get install libsqlite3-dev
 
   OSX
 
-    $ brew install sqlite
+      $ brew install sqlite
 
 ## DEPENDENCIES
 
@@ -40,4 +41,8 @@ firehose/sinatra/datamapper/backbone/redis chat server examplesimple chat server
 
 ## RUNNING
 
+ First time:
+    $ rake db:create
+
+ Every time:
     $ foreman start
