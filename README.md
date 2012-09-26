@@ -13,7 +13,7 @@ firehose/sinatra/datamapper/backbone/redis chat server examplesimple chat server
 
   * bundler gem
 
-    $ gem install bundler
+      $ gem install bundler
 
   * Redis
 
@@ -42,7 +42,9 @@ firehose/sinatra/datamapper/backbone/redis chat server examplesimple chat server
 ## RUNNING
 
  First time:
+
     $ rake db:create
 
  Every time:
+
     $ foreman start
